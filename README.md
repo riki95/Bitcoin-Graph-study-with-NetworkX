@@ -22,3 +22,7 @@ SOURCE, TARGET, RATING, TIME
 
 I've decided to only study Source, Target and Rating because Time was not so important to care about.
 You can just download my repo and you will find the dataset with the first row removed (it was the one with the Column's names) or you can download it from the official website.
+
+## Authors
+
+* **Riccardo Basso** - *Università degli studi di Genova*
