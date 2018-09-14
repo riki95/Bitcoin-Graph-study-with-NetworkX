@@ -23,6 +23,29 @@ SOURCE, TARGET, RATING, TIME
 I've decided to only study Source, Target and Rating because Time was not so important to care about.
 You can just download my repo and you will find the dataset with the first row removed (it was the one with the Column's names) or you can download it from the official website.
 
+## Reproduce experiments
+
+Reproducing experiments is very easy, running this command on terminal is enough:
+
+```
+python bitcoin_graph_analysis.py
+```
+You will see the analysys on the terminal or you can export it to a file modifing the parameter **file** inside the Python script.
+
+You can modify the Graph in input and the analysis is quite the same. Obviously you have to adapt some methods. 
+
+## Plots
+
+Thanks to this script you will be able to draw your graph:
+
+![Bitcoin Graph Image](https://i.imgur.com/fN9NB5U.png)
+
+You can modify colors, nodes, scales and so on. You can also draw histograms:
+
+![Diameter Historgram](https://i.imgur.com/aplPStE.png)
+
+This has been done with Matplotlib and it is very useful if you need to plot degrees or something like that.
+
 ## Authors
 
 * **Riccardo Basso** - *Università degli studi di Genova*
