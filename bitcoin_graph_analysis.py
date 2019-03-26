@@ -14,7 +14,7 @@ def create_graph():
             g.add_edge(s[0], s[1], weight=int(s[2]))
 
 
-def compute_trust():
+def compute_trust(g):
     trust = [0]*7605  # This because our indexes are until the number 7604
 
     with open('bitcoin.csv') as f:
@@ -42,7 +42,7 @@ def compute_trust():
         plot_distribution(trust_list, 'Out-Degree')  # Change to indegree if we want indegree
 
 
-def draw_graph():
+def draw_graph(g):
     nx.draw_networkx(g, node_size=50, font_size=2, arrowsize=3, node_color='b')
     plt.show()
 
@@ -60,7 +60,7 @@ def compute_centrality(g):
     return max_centrality
 
 
-def print_node_degrees(node):
+def print_node_degrees(g, node):
     print('\tDegrees data for node ', node, file=file)
     print('\t\tMost important node In-Degree:', g.in_degree(node),
           ' || Weighted: ', g.in_degree(node, weight='weight'), file=file)
@@ -121,15 +121,15 @@ def compute_component(comps):
     return giant_comp
 
 
-def do_computations():
+def do_computations(g):
     print('Bitcoin Alpha Graph:', file=file)
     print('\tNumber of nodes:', g.number_of_nodes(), file=file)
     print('\tNumber of edges:', g.number_of_edges(), file=file)
     print('\tNumber of self-loops:', g.number_of_selfloops(), file=file)
 
     max_centrality = compute_centrality(g)  # Need to set how to calculate centrality inside the function
-    print_node_degrees(max_centrality)
-    print_node_degrees(['2', '3', '4', '7'])  # These are other important nodes
+    print_node_degrees(g, max_centrality)
+    print_node_degrees(g, ['2', '3', '4', '7'])  # These are other important nodes
 
     print('\n\tNumber of triangles:', sum(nx.triangles(g.to_undirected()).values()) / 3, file=file)
     print('\tAverage clustering:', nx.average_clustering(g.to_undirected()), file=file)
@@ -146,9 +146,9 @@ def do_computations():
 
 # Just activate functions that you want to launch.
 def main():
-    compute_trust()
-    # do_computations()
-    # draw_graph()
+    compute_trust(g)
+    # do_computations(g)
+    # draw_graph(g)
 
 
 if __name__ == '__main__':
